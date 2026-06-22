@@ -31,7 +31,8 @@ import {
   TrendingUp,
   Printer,
   Download,
-  Edit3
+  Edit3,
+  LayoutGrid
 } from 'lucide-react';
 
 // =========================================================================
@@ -161,6 +162,8 @@ export default function App() {
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [pendingResumeSession, setPendingResumeSession] = useState(null);
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [showQuestionMap, setShowQuestionMap] = useState(false);
   
   // State Audio & Voice
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
@@ -1543,15 +1546,31 @@ export default function App() {
               </div>
 
               {/* Progress Tracker */}
-              <div className="flex items-center space-x-4">
-                <span className="text-sm font-semibold text-slate-400">
-                  Pertanyaan {currentQuestionIndex + 1} dari {questions.length}
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => setShowQuestionMap(prev => !prev)}
+                  className={`text-xs font-bold px-3 py-1.5 rounded-xl border flex items-center space-x-1.5 transition ${
+                    showQuestionMap
+                      ? 'bg-indigo-600 border-indigo-500 text-white'
+                      : theme === 'dark' ? 'bg-slate-800 border-slate-700 text-indigo-400 hover:bg-slate-750' : 'bg-indigo-50 border-indigo-100 text-indigo-600 hover:bg-indigo-100'
+                  }`}
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span>{showQuestionMap ? "Tutup Peta Soal" : "Peta Soal"}</span>
+                </button>
+
+                <span className="text-xs sm:text-sm font-semibold text-slate-400">
+                  {currentQuestionIndex + 1}/{questions.length}
                 </span>
 
                 {/* Timer untuk Exam Mode */}
                 {quizMode === 'exam' && (
-                  <div className="flex items-center space-x-2 bg-red-600/10 text-red-500 border border-red-500/20 px-3 py-1.5 rounded-xl font-mono text-sm font-bold">
-                    <Clock className="w-4 h-4 animate-pulse" />
+                  <div className={`flex items-center space-x-2 px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold border transition-all duration-300 ${
+                    timerSeconds < 300 
+                      ? 'bg-red-600 text-white border-red-500 animate-pulse shadow-lg shadow-red-500/50' 
+                      : 'bg-red-600/10 text-red-500 border-red-500/20'
+                  }`}>
+                    {timerSeconds < 300 ? <AlertCircle className="w-4 h-4 animate-bounce" /> : <Clock className="w-4 h-4 animate-pulse" />}
                     <span>
                       {Math.floor(timerSeconds / 60)}:{String(timerSeconds % 60).padStart(2, '0')}
                     </span>
@@ -1567,6 +1586,72 @@ export default function App() {
                 style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
               />
             </div>
+
+            {/* PETA SOAL PANEL */}
+            {showQuestionMap && (
+              <div className={`p-5 rounded-2xl border space-y-3 animate-fadeIn ${
+                theme === 'dark' ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
+              }`}>
+                <div className="flex items-center justify-between border-b border-slate-800/40 pb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Peta Navigasi Ujian / Latihan</span>
+                  <div className="flex items-center space-x-3 text-[10px] text-slate-500 flex-wrap gap-y-1">
+                    <span className="flex items-center space-x-1">
+                      <span className="w-2.5 h-2.5 rounded bg-indigo-600 border border-transparent" />
+                      <span>Aktif</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span className="w-2.5 h-2.5 rounded bg-emerald-500/20 border border-emerald-500/30" />
+                      <span>Dijawab</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span className="w-2.5 h-2.5 rounded bg-slate-800/40 border border-slate-800" />
+                      <span>Belum Dijawab</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span className="w-2.5 h-2.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold text-[8px]">★</span>
+                      <span>Bookmark</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 gap-2">
+                  {questions.map((q, idx) => {
+                    const isCurrent = idx === currentQuestionIndex;
+                    const isAnswered = userAnswers[q.id] !== undefined && userAnswers[q.id] !== '';
+                    const isBookmarked = bookmarksList.some(b => b.questionId === q.id);
+                    
+                    let btnStyle = "";
+                    if (isCurrent) {
+                      btnStyle = "bg-indigo-600 text-white border-transparent ring-2 ring-indigo-500";
+                    } else if (isAnswered) {
+                      btnStyle = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20";
+                    } else {
+                      btnStyle = theme === 'dark' 
+                        ? "bg-slate-800/40 text-slate-400 border border-slate-800 hover:bg-slate-800"
+                        : "bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100";
+                    }
+
+                    return (
+                      <button
+                        key={q.id}
+                        onClick={() => {
+                          setCurrentQuestionIndex(idx);
+                        }}
+                        className={`py-2 rounded-xl text-xs font-bold transition flex items-center justify-center relative ${btnStyle}`}
+                        title={`Soal ${idx + 1}`}
+                      >
+                        <span>{idx + 1}</span>
+                        {isBookmarked && (
+                          <span className="absolute -top-1 -right-1 bg-amber-500 text-slate-950 font-black rounded-full w-3.5 h-3.5 flex items-center justify-center text-[8px] shadow-sm">
+                            ★
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* AREA DUAL PANEL: SEKSIONAL SOAL */}
             <div className="grid lg:grid-cols-12 gap-6 items-start">
@@ -1910,7 +1995,7 @@ export default function App() {
 
                   {currentQuestionIndex === questions.length - 1 ? (
                     <button
-                      onClick={handleFinishQuiz}
+                      onClick={() => setShowSubmitConfirm(true)}
                       className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm flex items-center space-x-2 shadow-lg shadow-indigo-600/10 transition active:scale-95"
                     >
                       <span>Selesai & Kumpulkan</span>
@@ -2180,6 +2265,73 @@ export default function App() {
         <p>© 2026 Peterson's TOEFL Practice Simulator. Semua Hak Dilindungi.</p>
         <p className="mt-1">Dibuat khusus untuk persiapan ujian mandiri dengan format PBT interaktif.</p>
       </footer>
+
+      {/* MODAL KONFIRMASI SUBMIT CBT */}
+      {showSubmitConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn no-print">
+          <div className={`w-full max-w-md rounded-2xl border p-6 space-y-6 shadow-2xl animate-scaleUp ${
+            theme === 'dark' ? 'bg-slate-900 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'
+          }`}>
+            <div className="flex items-center space-x-3 text-amber-500">
+              <AlertCircle className="w-8 h-8" />
+              <h4 className="text-xl font-extrabold tracking-tight">Kumpulkan Jawaban?</h4>
+            </div>
+            
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Apakah Anda yakin ingin menyelesaikan sesi ujian/latihan ini dan mengumpulkan jawaban Anda? Anda tidak akan dapat mengubah jawaban lagi setelah ini.
+            </p>
+            
+            {/* Ringkasan Jawaban */}
+            <div className="grid grid-cols-2 gap-3 text-center">
+              <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/25">
+                <span className="text-xs text-slate-400 block font-bold">Dijawab</span>
+                <span className="text-2xl font-black text-indigo-400">
+                  {questions.filter(q => userAnswers[q.id] !== undefined && userAnswers[q.id] !== '').length}
+                </span>
+              </div>
+              <div className={`p-3 rounded-xl border ${
+                questions.length - questions.filter(q => userAnswers[q.id] !== undefined && userAnswers[q.id] !== '').length > 0
+                  ? 'bg-amber-500/10 border-amber-500/25'
+                  : 'bg-emerald-500/10 border-emerald-500/25'
+              }`}>
+                <span className="text-xs text-slate-400 block font-bold">Belum Dijawab</span>
+                <span className={`text-2xl font-black ${
+                  questions.length - questions.filter(q => userAnswers[q.id] !== undefined && userAnswers[q.id] !== '').length > 0
+                    ? 'text-amber-400'
+                    : 'text-emerald-400'
+                }`}>
+                  {questions.length - questions.filter(q => userAnswers[q.id] !== undefined && userAnswers[q.id] !== '').length}
+                </span>
+              </div>
+            </div>
+
+            {questions.length - questions.filter(q => userAnswers[q.id] !== undefined && userAnswers[q.id] !== '').length > 0 && (
+              <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs text-amber-400 leading-relaxed flex items-start gap-2">
+                <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>Ada soal yang belum Anda jawab. Disarankan untuk mengisi semua jawaban (tidak ada pengurangan nilai untuk jawaban salah).</span>
+              </div>
+            )}
+
+            <div className="flex space-x-3 pt-2">
+              <button
+                onClick={() => setShowSubmitConfirm(false)}
+                className="flex-1 py-3 bg-slate-850 hover:bg-slate-850 text-slate-300 border border-slate-800 rounded-xl text-sm font-bold transition"
+              >
+                Kembali
+              </button>
+              <button
+                onClick={() => {
+                  setShowSubmitConfirm(false);
+                  handleFinishQuiz();
+                }}
+                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-600/20 transition"
+              >
+                Ya, Kumpulkan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
