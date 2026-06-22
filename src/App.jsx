@@ -161,7 +161,7 @@ export default function App() {
   const [quizFinished, setQuizFinished] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [isTimerActive, setIsTimerActive] = useState(false);
-  const [pendingResumeSession, setPendingResumeSession] = useState(null);
+  const pendingResumeSessionRef = useRef(null);
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const [showQuestionMap, setShowQuestionMap] = useState(false);
   const [showResumeConfirmModal, setShowResumeConfirmModal] = useState(false);
@@ -285,11 +285,12 @@ export default function App() {
       setQuizFinished(false);
       setShowScript(false);
       
-      if (pendingResumeSession) {
-        setCurrentQuestionIndex(pendingResumeSession.currentQuestionIndex);
-        setUserAnswers(pendingResumeSession.userAnswers || {});
-        setTimerSeconds(pendingResumeSession.timerSeconds);
-        setPendingResumeSession(null);
+      const pendingResume = pendingResumeSessionRef.current;
+      if (pendingResume) {
+        setCurrentQuestionIndex(pendingResume.currentQuestionIndex);
+        setUserAnswers(pendingResume.userAnswers || {});
+        setTimerSeconds(pendingResume.timerSeconds);
+        pendingResumeSessionRef.current = null;
         if (quizMode === 'exam') {
           setIsTimerActive(true);
         } else {
@@ -314,7 +315,7 @@ export default function App() {
       }
     }
     stopAllAudio();
-  }, [currentScreen, selectedTest, selectedSection, quizMode, pendingResumeSession]);
+  }, [currentScreen, selectedTest, selectedSection, quizMode]);
 
   // 3. Kontrol Efek Timer
   useEffect(() => {
@@ -353,8 +354,9 @@ export default function App() {
   const startQuiz = (testId, sectionId, mode) => {
     setIsFullExam(false);
     
-    const sessionKey = `toefl_session_${testId}_${sectionId}_${mode}`;
-    const saved = localStorage.getItem(sessionKey);
+    const sessionKey = `toefl_session_${testId}_${sectionId}_mode`; // Wait, let's verify if the key matches
+    // Ah, wait! The sessionKey we used in startQuiz previously was `toefl_session_${testId}_${sectionId}_${mode}`. Let's make sure it's correct.
+    const saved = localStorage.getItem(`toefl_session_${testId}_${sectionId}_${mode}`);
     if (saved) {
       const parsed = JSON.parse(saved);
       setResumeSessionData({
@@ -368,7 +370,7 @@ export default function App() {
       setSelectedTest(testId);
       setSelectedSection(sectionId);
       setQuizMode(mode);
-      setPendingResumeSession(null);
+      pendingResumeSessionRef.current = null;
       setCurrentScreen('quiz');
     }
   };
@@ -378,7 +380,7 @@ export default function App() {
       setSelectedTest(resumeSessionData.testId);
       setSelectedSection(resumeSessionData.sectionId);
       setQuizMode(resumeSessionData.mode);
-      setPendingResumeSession(resumeSessionData.parsed);
+      pendingResumeSessionRef.current = resumeSessionData.parsed;
     }
     setShowResumeConfirmModal(false);
     setResumeSessionData(null);
@@ -393,7 +395,7 @@ export default function App() {
       const sessionKey = `toefl_session_${resumeSessionData.testId}_${resumeSessionData.sectionId}_${resumeSessionData.mode}`;
       localStorage.removeItem(sessionKey);
     }
-    setPendingResumeSession(null);
+    pendingResumeSessionRef.current = null;
     setShowResumeConfirmModal(false);
     setResumeSessionData(null);
     setCurrentScreen('quiz');

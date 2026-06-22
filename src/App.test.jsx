@@ -259,4 +259,137 @@ describe('TOEFL PBT Simulator App Integration Tests', () => {
     expect(screen.getAllByText(/piano/i).length).toBeGreaterThanOrEqual(1); // Question 1 talks about piano
     expect(screen.getByDisplayValue('Inilah catatan belajar penting.')).toBeInTheDocument();
   });
+
+  it('opens Question Navigator Grid, navigates to question 5, and updates current question index', () => {
+    render(<App />);
+    
+    // Start listening study mode
+    const listeningStudyBtn = screen.getAllByRole('button', { name: /📖 Study/i })[0];
+    fireEvent.click(listeningStudyBtn);
+    
+    // Default is Question 1
+    expect(screen.getByText('Question 1')).toBeInTheDocument();
+    
+    // Click "Peta Soal" button
+    const mapBtn = screen.getByRole('button', { name: /Peta Soal/i });
+    fireEvent.click(mapBtn);
+    
+    // Grid panel appears, click button "5"
+    const gridItem5 = screen.getByRole('button', { name: '5' });
+    fireEvent.click(gridItem5);
+    
+    // Check that we jumped to Question 5
+    expect(screen.getByText('Question 5')).toBeInTheDocument();
+  });
+
+  it('triggers Custom Submit Confirmation Modal, cancels, and then submits successfully', () => {
+    render(<App />);
+    
+    // Start structure study mode (40 questions, shorter than listening)
+    const structureStudyBtn = screen.getAllByRole('button', { name: /📖 Study/i })[1];
+    fireEvent.click(structureStudyBtn);
+    
+    // Jump to the last question via Peta Soal to make "Selesai & Kumpulkan" button visible
+    const mapBtn = screen.getByRole('button', { name: /Peta Soal/i });
+    fireEvent.click(mapBtn);
+    
+    const gridItem40 = screen.getByRole('button', { name: '40' });
+    fireEvent.click(gridItem40);
+    
+    expect(screen.getByText('Question 40')).toBeInTheDocument();
+    
+    // Click "Selesai & Kumpulkan"
+    const finishBtn = screen.getByRole('button', { name: /Selesai & Kumpulkan/i });
+    fireEvent.click(finishBtn);
+    
+    // Confirmation Modal should appear
+    expect(screen.getByText('Kumpulkan Jawaban?')).toBeInTheDocument();
+    expect(screen.getByText(/Ada soal yang belum Anda jawab/i)).toBeInTheDocument();
+    
+    // Click "Kembali" to close modal
+    const cancelModalBtn = screen.getByRole('button', { name: /Kembali/i });
+    fireEvent.click(cancelModalBtn);
+    
+    // Modal is closed, we are still on question 40
+    expect(screen.queryByText('Kumpulkan Jawaban?')).not.toBeInTheDocument();
+    expect(screen.getByText('Question 40')).toBeInTheDocument();
+    
+    // Click finish again and confirm submission
+    fireEvent.click(finishBtn);
+    const confirmModalBtn = screen.getByRole('button', { name: /Ya, Kumpulkan/i });
+    fireEvent.click(confirmModalBtn);
+    
+    // We should be in results screen
+    expect(screen.getByText(/Laporan Kinerja TOEFL Anda/i)).toBeInTheDocument();
+  });
+
+  it('detects saved session in localStorage, shows Custom Resume Modal, and resumes progress', () => {
+    // Seed a saved session for test1 listening study mode (soal 3, 2 answered questions)
+    const sessionKey = 'toefl_session_test1_listening_study';
+    const mockSession = {
+      currentQuestionIndex: 2, // question 3
+      userAnswers: { l1_1: 2, l1_2: 3 },
+      timerSeconds: 0
+    };
+    window.localStorage.setItem(sessionKey, JSON.stringify(mockSession));
+    
+    render(<App />);
+    
+    // Click Listening Study button
+    const listeningStudyBtn = screen.getAllByRole('button', { name: /📖 Study/i })[0];
+    fireEvent.click(listeningStudyBtn);
+    
+    // Custom Resume Modal should appear
+    expect(screen.getByText('Lanjutkan Latihan?')).toBeInTheDocument();
+    expect(screen.getByText(/terakhir di soal 3/i)).toBeInTheDocument();
+    
+    // Click "Lanjutkan Sesi"
+    const resumeBtn = screen.getByRole('button', { name: /Lanjutkan Sesi/i });
+    fireEvent.click(resumeBtn);
+    
+    // We should be on Question 3 and answers should be loaded
+    expect(screen.getByText('Question 3')).toBeInTheDocument();
+    
+    // Go back to check Question 1 answer
+    const mapBtn = screen.getByRole('button', { name: /Peta Soal/i });
+    fireEvent.click(mapBtn);
+    
+    const gridItem1 = screen.getByRole('button', { name: '1' });
+    fireEvent.click(gridItem1);
+    
+    // Option C (index 2) should be selected (She believes the photos are on the piano)
+    const optionC = screen.getByText(/She believes the photos/i);
+    expect(optionC.closest('.border')).toHaveClass('border-indigo-500');
+  });
+
+  it('starts Full Exam, clicks exit, shows Custom Exit Modal, cancels exit, and then completes exit', () => {
+    render(<App />);
+    
+    // Click Mulai Ujian Lengkap
+    const fullExamBtn = screen.getByRole('button', { name: /Mulai Ujian Lengkap/i });
+    fireEvent.click(fullExamBtn);
+    
+    // We are in full exam, click "Keluar Ujian" button in header
+    const exitBtn = screen.getByRole('button', { name: /Keluar Ujian/i });
+    fireEvent.click(exitBtn);
+    
+    // Custom Exit Modal should appear
+    expect(screen.getByText('Batalkan Ujian Lengkap?')).toBeInTheDocument();
+    
+    // Click "Kembali Ujian"
+    const backToExamBtn = screen.getByRole('button', { name: /Kembali Ujian/i });
+    fireEvent.click(backToExamBtn);
+    
+    // We are still in the exam
+    expect(screen.queryByText('Batalkan Ujian Lengkap?')).not.toBeInTheDocument();
+    expect(screen.getByText('Question 1')).toBeInTheDocument();
+    
+    // Click "Keluar Ujian" again and confirm exit
+    fireEvent.click(exitBtn);
+    const confirmExitBtn = screen.getByRole('button', { name: /Ya, Batalkan Ujian/i });
+    fireEvent.click(confirmExitBtn);
+    
+    // We should be back on the dashboard
+    expect(screen.getByText('TOEFL PBT Simulator')).toBeInTheDocument();
+  });
 });
