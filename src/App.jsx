@@ -164,6 +164,9 @@ export default function App() {
   const [pendingResumeSession, setPendingResumeSession] = useState(null);
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const [showQuestionMap, setShowQuestionMap] = useState(false);
+  const [showResumeConfirmModal, setShowResumeConfirmModal] = useState(false);
+  const [resumeSessionData, setResumeSessionData] = useState(null);
+  const [showExitExamConfirmModal, setShowExitExamConfirmModal] = useState(false);
   
   // State Audio & Voice
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
@@ -349,26 +352,50 @@ export default function App() {
 
   const startQuiz = (testId, sectionId, mode) => {
     setIsFullExam(false);
-    setSelectedTest(testId);
-    setSelectedSection(sectionId);
-    setQuizMode(mode);
     
     const sessionKey = `toefl_session_${testId}_${sectionId}_${mode}`;
     const saved = localStorage.getItem(sessionKey);
     if (saved) {
       const parsed = JSON.parse(saved);
-      const questionNum = parsed.currentQuestionIndex + 1;
-      const confirmResume = window.confirm(`Anda memiliki sesi latihan ${mode === 'study' ? 'Study' : 'Exam'} yang belum selesai (terakhir di soal ${questionNum}). Lanjutkan dari soal ini?`);
-      if (confirmResume) {
-        setPendingResumeSession(parsed);
-      } else {
-        localStorage.removeItem(sessionKey);
-        setPendingResumeSession(null);
-      }
+      setResumeSessionData({
+        parsed,
+        testId,
+        sectionId,
+        mode
+      });
+      setShowResumeConfirmModal(true);
     } else {
+      setSelectedTest(testId);
+      setSelectedSection(sectionId);
+      setQuizMode(mode);
       setPendingResumeSession(null);
+      setCurrentScreen('quiz');
     }
-    
+  };
+
+  const handleConfirmResume = () => {
+    if (resumeSessionData) {
+      setSelectedTest(resumeSessionData.testId);
+      setSelectedSection(resumeSessionData.sectionId);
+      setQuizMode(resumeSessionData.mode);
+      setPendingResumeSession(resumeSessionData.parsed);
+    }
+    setShowResumeConfirmModal(false);
+    setResumeSessionData(null);
+    setCurrentScreen('quiz');
+  };
+
+  const handleDeclineResume = () => {
+    if (resumeSessionData) {
+      setSelectedTest(resumeSessionData.testId);
+      setSelectedSection(resumeSessionData.sectionId);
+      setQuizMode(resumeSessionData.mode);
+      const sessionKey = `toefl_session_${resumeSessionData.testId}_${resumeSessionData.sectionId}_${resumeSessionData.mode}`;
+      localStorage.removeItem(sessionKey);
+    }
+    setPendingResumeSession(null);
+    setShowResumeConfirmModal(false);
+    setResumeSessionData(null);
     setCurrentScreen('quiz');
   };
 
@@ -927,11 +954,11 @@ export default function App() {
             <button
               onClick={() => {
                 if (isFullExam) {
-                  const confirmExit = window.confirm("Apakah Anda yakin ingin membatalkan Ujian Lengkap? Seluruh kemajuan ujian Anda saat ini akan dihapus dan tidak dapat dipulihkan.");
-                  if (!confirmExit) return;
+                  setShowExitExamConfirmModal(true);
+                } else {
+                  stopAllAudio();
+                  setCurrentScreen('dashboard');
                 }
-                stopAllAudio();
-                setCurrentScreen('dashboard');
               }}
               className="flex items-center space-x-1 text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-xl font-medium transition duration-200"
             >
@@ -2327,6 +2354,76 @@ export default function App() {
                 className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-600/20 transition"
               >
                 Ya, Kumpulkan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL CUSTOM RESUME SESSION */}
+      {showResumeConfirmModal && resumeSessionData && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn no-print">
+          <div className={`w-full max-w-md rounded-2xl border p-6 space-y-6 shadow-2xl animate-scaleUp ${
+            theme === 'dark' ? 'bg-slate-900 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'
+          }`}>
+            <div className="flex items-center space-x-3 text-indigo-400">
+              <History className="w-8 h-8" />
+              <h4 className="text-xl font-extrabold tracking-tight">Lanjutkan Latihan?</h4>
+            </div>
+            
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Anda memiliki sesi latihan <strong className="text-indigo-400">{resumeSessionData.mode === 'study' ? 'Study' : 'Exam'}</strong> yang belum selesai untuk <strong className="text-slate-200">{resumeSessionData.sectionId === 'listening' ? 'Section 1: Listening' : resumeSessionData.sectionId === 'structure' ? 'Section 2: Structure' : 'Section 3: Reading'}</strong> (terakhir di soal {resumeSessionData.parsed.currentQuestionIndex + 1}). Apakah Anda ingin melanjutkan dari soal ini?
+            </p>
+
+            <div className="flex space-x-3 pt-2">
+              <button
+                onClick={handleDeclineResume}
+                className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-350 rounded-xl text-sm font-bold border border-slate-700 transition"
+              >
+                Mulai Baru
+              </button>
+              <button
+                onClick={handleConfirmResume}
+                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-600/20 transition animate-pulse"
+              >
+                Lanjutkan Sesi
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL CUSTOM EXIT FULL EXAM CONFIRMATION */}
+      {showExitExamConfirmModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn no-print">
+          <div className={`w-full max-w-md rounded-2xl border p-6 space-y-6 shadow-2xl animate-scaleUp ${
+            theme === 'dark' ? 'bg-slate-900 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'
+          }`}>
+            <div className="flex items-center space-x-3 text-red-500">
+              <AlertCircle className="w-8 h-8" />
+              <h4 className="text-xl font-extrabold tracking-tight">Batalkan Ujian Lengkap?</h4>
+            </div>
+            
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Apakah Anda yakin ingin membatalkan simulasi Ujian Lengkap? Seluruh kemajuan dan jawaban Anda saat ini akan dihapus secara permanen dan tidak dapat dipulihkan.
+            </p>
+
+            <div className="flex space-x-3 pt-2">
+              <button
+                onClick={() => setShowExitExamConfirmModal(false)}
+                className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-xl text-sm font-bold transition"
+              >
+                Kembali Ujian
+              </button>
+              <button
+                onClick={() => {
+                  setShowExitExamConfirmModal(false);
+                  stopAllAudio();
+                  setCurrentScreen('dashboard');
+                }}
+                className="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-red-600/20 transition"
+              >
+                Ya, Batalkan Ujian
               </button>
             </div>
           </div>
