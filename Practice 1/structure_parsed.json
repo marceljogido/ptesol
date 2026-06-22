@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "s1_1",
+    "number": 1,
+    "type": "structure_choice",
+    "explanation": "Kalimat ini membutuhkan subjek tunggal yang lengkap sebelum kata kerja \"played\". Pilihan (B) \"The\" adalah kata sandang penentu tunggal (determiner) yang paling tepat untuk mendahului kata benda penjelas subjek \"dancer Isadora Duncan\".",
+    "sentence": "________ dancer Isadora Duncan played a major role in the revolution in dance that took place in the early twentieth century.",
+    "options": [
+      "Because the",
+      "The",
+      "She was a",
+      "Being a"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "s1_2",
+    "number": 2,
+    "type": "structure_choice",
+    "explanation": "Di bagian belakang kalimat terdapat konjungsi korelatif berpasangan yaitu \"but also\". Pasangan yang tepat dan baku untuk \"but also\" adalah not only (mengikuti pola: not only... but also...).",
+    "sentence": "Water pressure ________ cracks open small rocks but also breaks great slabs of stone from the faces of cliffs.",
+    "options": [
+      "either",
+      "not only",
+      "and so",
+      "moreover"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "s1_3",
+    "number": 3,
+    "type": "structure_choice",
+    "explanation": "Kalimat ini rumpang di bagian awal dan membutuhkan struktur subjek + kata kerja bantu pengantar keberadaan benda (existential construct). Pilihan (A) \"Basically, there are two\" melengkapi kalimat tersebut secara sempurna.",
+    "sentence": "________ types of guitars: acoustic and electric.",
+    "options": [
+      "Basically, there are two",
+      "Two of the basic",
+      "Basically, two",
+      "They are two basic"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "s1_4",
+    "number": 4,
+    "type": "structure_choice",
+    "explanation": "Subjek kalimat berbentuk jamak (\"Both longitude and latitude\"), dan kalimat ini membutuhkan kata kerja pasif (passive voice) dalam bentuk waktu sekarang (present tense), yaitu are measured (diukur).",
+    "sentence": "Both longitude and latitude ________ in degrees, minutes, and seconds.",
+    "options": [
+      "measuring",
+      "measured",
+      "are measured",
+      "being measured"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "s1_5",
+    "number": 5,
+    "type": "structure_choice",
+    "explanation": "Bagian rumpang membutuhkan bentuk to infinitive sebagai kata keterangan penunjuk tujuan (adverb of purpose). Pilihan (A) \"to describe\" adalah bentuk yang paling tepat.",
+    "sentence": "New words are constantly being invented ________ new objects and concepts.",
+    "options": [
+      "to describe",
+      "a description of",
+      "they describe",
+      "describe"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "s1_6",
+    "number": 6,
+    "type": "structure_choice",
+    "explanation": "Bagian rumpang berada di antara kata sifat (special) dan kata benda (plastic), sehingga membutuhkan kata sifat majemuk (compound adjective) untuk menerangkan plastik tersebut. Bentuk yang tepat adalah friction-reducing (pengurang gesekan).",
+    "sentence": "Modern saw blades are coated with a special ________ plastic.",
+    "options": [
+      "reduction of friction",
+      "reduced-friction",
+      "friction is reduced",
+      "friction-reducing"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "s1_7",
+    "number": 7,
+    "type": "structure_choice",
+    "explanation": "Karena kalimat ini menggunakan struktur perbandingan tingkat lebih (comparative degree - harder), maka wajib menggunakan kata hubung pembanding than diikuti oleh kata ganti benda penunjuk jamak those (menjadi: than those).",
+    "sentence": "Bricks baked in a kiln are much harder ________ that are dried in the sun.",
+    "options": [
+      "those",
+      "than do those",
+      "than those",
+      "ones"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "s1_8",
+    "number": 8,
+    "type": "structure_choice",
+    "explanation": "Bagian rumpang membutuhkan kata tanya penghubung (conjunctive adverb) untuk membentuk klausa kata benda (noun clause) yang bertindak sebagai subjek kalimat sebelum kata kerja \"is not known\". Kata yang tepat adalah how (bagaimana).",
+    "sentence": "Exactly ________ humans domesticated animals is not known.",
+    "options": [
+      "how",
+      "by means of",
+      "if",
+      "by which"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "s1_9",
+    "number": 9,
+    "type": "structure_choice",
+    "explanation": "Bagian rumpang membutuhkan frasa aposisi (appositive phrase) untuk menerangkan karya \"Showboat\". Pilihan (D) \"one of the finest\" melengkapi aposisi tersebut tanpa menambahkan subjek ganda yang tidak perlu.",
+    "sentence": "Jerome Kern's most famous work is Showboat, ________ most enduring musical comedies.",
+    "options": [
+      "it is one of the finest",
+      "of the finest one",
+      "the finest one",
+      "one of the finest"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "s1_10",
+    "number": 10,
+    "type": "structure_choice",
+    "explanation": "Bagian awal kalimat membutuhkan kata hubung penunjuk waktu/syarat (adverbial subordinator) untuk menghubungkan anak kalimat dengan induk kalimat (\"it begins to move...\"). Kata yang tepat adalah Whenever a (setiap kali sebuah).",
+    "sentence": "________ snowfield on a mountain slope reaches a depth of about 100 feet, it begins to move slowly forward under its own weight.",
+    "options": [
+      "Whenever a",
+      "A",
+      "That a",
+      "Should a"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "s1_11",
+    "number": 11,
+    "type": "structure_choice",
+    "explanation": "Ketika membicarakan dua hal secara spesifik (\"two kinds of tails\"), setelah menyebutkan yang pertama menggunakan kata \"one\", maka untuk menyebutkan hal yang kedua (terakhir) wajib menggunakan frasa pembatas the other.",
+    "sentence": "Most comets have two kinds of tails, one made up of dust, ________ made up of electrically charged particles called plasma.",
+    "options": [
+      "one another",
+      "the other",
+      "other ones",
+      "each other"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "s1_12",
+    "number": 12,
+    "type": "structure_choice",
+    "explanation": "Untuk menghubungkan klausa non-restriktif tambahan penjelas kuantitas dari kata benda \"steamboats\", pola susunan kata yang benar adalah penunjuk kuantitas + preposisi + kata ganti relatif (many of which).",
+    "sentence": "By 1820, there were over sixty steamboats on the Mississippi River, ________ were quite luxurious.",
+    "options": [
+      "many of them",
+      "which many",
+      "many of which",
+      "many that"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "s1_13",
+    "number": 13,
+    "type": "structure_choice",
+    "explanation": "Bagian rumpang membutuhkan bentuk penyederhanaan klausa pasif (reduced passive clause / participle phrase). Kata kerja partisip lampau Built (yang dibangun) adalah bentuk yang benar, kependekan dari \"Which was built\".",
+    "sentence": "________ in 1772, Maryland's state capitol is still in use and is one of the most attractive public buildings in the United States.",
+    "options": [
+      "It was built",
+      "Built",
+      "To build it",
+      "Building"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "s1_14",
+    "number": 14,
+    "type": "structure_choice",
+    "explanation": "Kalimat yang diawali dengan keterangan tempat (place expression / \"Four miles off...\") mengharuskan terjadinya inversi subjek dan kata kerja penuh tanpa kata kerja bantu (Subject-Verb Inversion), sehingga susunannya menjadi: kata kerja (lies) + subjek utama (the island of Martha's Vineyard).",
+    "sentence": "Four miles off the southeastern coast of Massachusetts ________, a popular summer resort.",
+    "options": [
+      "lies the island of Martha's Vineyard",
+      "the island of Martha's Vineyard lies there",
+      "does lie the island of Martha's Vineyard",
+      "where the island of Martha's Vineyard lies"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "s1_15",
+    "number": 15,
+    "type": "structure_choice",
+    "explanation": "Ungkapan negatif baku bahasa Inggris untuk menyatakan \"tidak lagi\" adalah no longer, bukan not longer atau never longer. PART B: Written Expression (Questions 16 - 40) Petunjuk: Identifikasilah satu kata atau frasa bergaris bawah (ditandai dengan huruf A, B, C, atau D) yang salah atau tidak sesuai dengan aturan tata bahasa Inggris standar.",
+    "sentence": "Copperplate, a highly ornate form of handwriting, is ________ longer in common use.",
+    "options": [
+      "not",
+      "none",
+      "never",
+      "no"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "s1_16",
+    "number": 16,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: written. Kata kerja partisip lampau (past participle) yaitu written harus digunakan untuk menggantikan bentuk present participle aktif yaitu writing. Bentuk past participle pasif ini berfungsi untuk menyederhanakan (reduce) klausa relatif yang menggunakan kata kerja pasif. Struktur \"In an essay written in 1779\" merupakan cara singkat untuk menyatakan \"In an essay that was written in 1779\".",
+    "sentence": "In an essay writing in 1779, Judith Sargeant Murray promoted the cause of women's education.",
+    "sentenceParts": [
+      {
+        "text": "In an "
+      },
+      {
+        "text": "essay",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "writing",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " in 1779, Judith Sargeant Murray promoted the cause "
+      },
+      {
+        "text": "of",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " women's "
+      },
+      {
+        "text": "education",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_17",
+    "number": 17,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: itself (atau it). Kata ganti tunggal (singular pronoun) yaitu itself harus digunakan menggantikan kata ganti jamak themselves karena kata ganti tersebut merujuk kembali kepada frasa kata benda tunggal (singular noun phrase) yaitu \"A metallic object\".",
+    "sentence": "A metallic object that is in contact with a magnet becomes a magnet themselves.",
+    "sentenceParts": [
+      {
+        "text": "A",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " metallic object "
+      },
+      {
+        "text": "that",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " is in contact with a magnet becomes a "
+      },
+      {
+        "text": "magnet",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "themselves",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "s1_18",
+    "number": 18,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: abruptly. Kata keterangan (adverb) yaitu abruptly harus digunakan untuk menggantikan kata sifat (adjective) abrupt karena berfungsi untuk menerangkan sebuah kata kerja (modify a verb) yaitu \"occurs\".",
+    "sentence": "The change from summer to winter occurs very abrupt in the tundra regions of North America.",
+    "sentenceParts": [
+      {
+        "text": "The change "
+      },
+      {
+        "text": "from",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " summer to winter "
+      },
+      {
+        "text": "occurs",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " very "
+      },
+      {
+        "text": "abrupt",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " in the tundra "
+      },
+      {
+        "text": "regions",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " of North America."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_19",
+    "number": 19,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: by means of. Kata depan (preposition) yaitu of telah diabaikan/dihilangkan dari susunan frasa tetap \"by means of\" (yang berarti \"dengan menggunakan\" atau \"melalui\").",
+    "sentence": "In outer space, spacecraft can be channeled by means small steering rockets.",
+    "sentenceParts": [
+      {
+        "text": "In",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " outer space, spacecraft can "
+      },
+      {
+        "text": "be",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " channeled "
+      },
+      {
+        "text": "by means",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " small "
+      },
+      {
+        "text": "steering",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " rockets."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_20",
+    "number": 20,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: bounce. Bentuk kata kerja jamak (plural verb form) yaitu bounce sangat diperlukan di sini agar sesuai dengan subjek klausa yang berbentuk jamak (plural subject) yaitu \"sound waves\".",
+    "sentence": "Echoes occur when sound waves strike a smooth surface and bounces backwards.",
+    "sentenceParts": [
+      {
+        "text": "Echoes occur "
+      },
+      {
+        "text": "when",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " sound "
+      },
+      {
+        "text": "waves",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " strike a "
+      },
+      {
+        "text": "smooth",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " surface and "
+      },
+      {
+        "text": "bounces",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " backwards."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "s1_21",
+    "number": 21,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: carpenter. Pemilihan kata benda di sini salah. Kata yang benar adalah carpenter. Kata \"carpentry\" merujuk pada bidang keilmuan atau industrinya, sedangkan kata \"carpenter\" merujuk pada orang (profesi) yang bekerja di bidang tersebut.",
+    "sentence": "A good carpentry must possess a wide variety of skills.",
+    "sentenceParts": [
+      {
+        "text": "A good "
+      },
+      {
+        "text": "carpentry",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " must "
+      },
+      {
+        "text": "possess",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " a wide "
+      },
+      {
+        "text": "variety",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " of "
+      },
+      {
+        "text": "skills",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "s1_22",
+    "number": 22,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: who (atau that). Kata ganti relatif (relative pronoun) who digunakan khusus untuk merujuk pada manusia (persons). Sebaliknya, kata ganti which digunakan untuk merujuk pada benda mati (inanimate things). Karena merujuk pada kata \"president\", maka wajib menggunakan who.",
+    "sentence": "Grover Cleveland was the only American president which served two nonconsecutive terms.",
+    "sentenceParts": [
+      {
+        "text": "Grover Cleveland was the "
+      },
+      {
+        "text": "only",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " American president "
+      },
+      {
+        "text": "which",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "served",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " two nonconsecutive "
+      },
+      {
+        "text": "terms",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_23",
+    "number": 23,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: her. Kata sifat kepemilikan (possessive adjective) yaitu her harus digunakan menggantikan kata sandang penentu the untuk memperjelas bahwa karir yang dimaksud adalah karir dari orang tertentu (Mary Gardner).",
+    "sentence": "The American soprano Mary Gardner, who had one of the greatest operatic voices of her era, retired at the height of the career.",
+    "sentenceParts": [
+      {
+        "text": "The American soprano Mary Gardner, who "
+      },
+      {
+        "text": "had",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " one of the "
+      },
+      {
+        "text": "greatest",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " operatic voices of her era, retired at the "
+      },
+      {
+        "text": "height",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " of "
+      },
+      {
+        "text": "the",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " career."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "s1_24",
+    "number": 24,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: when the sky is. Susunan kata (word order) yang benar adalah when the sky is. Ungkapan \"when the sky is clear\" bertindak sebagai sebuah klausa kata keterangan (adverb clause), bukan kalimat tanya langsung; oleh karena itu, susunan katanya wajib menggunakan aturan pernyataan umum (subject + verb), bukan verb + subject.",
+    "sentence": "On nights when is the sky clear and the air calm, the Earth's surface rapidly radiates heat into the atmosphere.",
+    "sentenceParts": [
+      {
+        "text": "On nights when "
+      },
+      {
+        "text": "is the sky",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " clear and the air "
+      },
+      {
+        "text": "calm",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": ", the Earth's surface "
+      },
+      {
+        "text": "rapidly",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " radiates heat "
+      },
+      {
+        "text": "into",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " the atmosphere."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "s1_25",
+    "number": 25,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: and. Pola kata sambung berpasangan korelatif (correlative conjunction) yang benar dan baku adalah both ... and.",
+    "sentence": "Dreams are commonly made up of both visual or verbal images.",
+    "sentenceParts": [
+      {
+        "text": "Dreams are "
+      },
+      {
+        "text": "commonly",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " made up "
+      },
+      {
+        "text": "of",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " both visual "
+      },
+      {
+        "text": "or",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " verbal "
+      },
+      {
+        "text": "images",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_26",
+    "number": 26,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: closes. Agar sejajar (parallel) dengan kata-kata kerja sebelumnya yang berbentuk waktu sekarang tunggal (makes dan lines), kata kerja penutupnya harus menggunakan kata kerja tunggal reguler yaitu closes menggantikan bentuk kata kerja -ing (closing).",
+    "sentence": "The trap-door spider makes a hole in the ground, lines it with silk, and closing it with a hinged door.",
+    "sentenceParts": [
+      {
+        "text": "The trap-door spider "
+      },
+      {
+        "text": "makes",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " a hole in the ground, lines it with "
+      },
+      {
+        "text": "silk",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": ", and "
+      },
+      {
+        "text": "closing",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " it with a hinged "
+      },
+      {
+        "text": "door",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_27",
+    "number": 27,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: loss. Kita membutuhkan kelas kata benda (noun) yaitu loss setelah kata sifat penjelas (\"extreme\"), bukan menggunakan bentuk kata kerja partisip/lampau yaitu lost.",
+    "sentence": "Sleepiness is one symptom of hypothermia, the extreme lost of body heat.",
+    "sentenceParts": [
+      {
+        "text": "Sleepiness "
+      },
+      {
+        "text": "is",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " one "
+      },
+      {
+        "text": "symptom",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " of hypothermia, the "
+      },
+      {
+        "text": "extreme",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "lost",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " of body heat."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "s1_28",
+    "number": 28,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: made. Kata kerja made (dari kata dasar make) harus digunakan untuk menggantikan kata kerja done karena merujuk pada konstruksi perakitan fisik suatu benda (\"constructed\") dari bahan mentah.",
+    "sentence": "The flute is the only woodwind instrument that is not done of wood.",
+    "sentenceParts": [
+      {
+        "text": "The "
+      },
+      {
+        "text": "flute",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " is the "
+      },
+      {
+        "text": "only",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " woodwind instrument that is not "
+      },
+      {
+        "text": "done",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " of "
+      },
+      {
+        "text": "wood",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_29",
+    "number": 29,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: wealth. Berdasarkan aturan kesejajaran unsur (parallel structure), untuk menyejajarkan kelas kata dengan kata benda lainnya di dalam deretan tersebut (status dan love), kita harus menggunakan kata benda wealth, bukan menggunakan bentuk kata sifat wealthy.",
+    "sentence": "F. Scott Fitzgerald's novel The Great Gatsby is about the pursuit of wealthy, status, and love in the 1920s.",
+    "sentenceParts": [
+      {
+        "text": "F. Scott Fitzgerald's novel The Great Gatsby is "
+      },
+      {
+        "text": "about",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " the "
+      },
+      {
+        "text": "pursuit",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " of "
+      },
+      {
+        "text": "wealthy",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": ", status, and "
+      },
+      {
+        "text": "love",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " in the 1920s."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_30",
+    "number": 30,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: is. Kata kerja tunggal (singular verb) yaitu is harus digunakan untuk menggantikan kata kerja jamak are agar sesuai dengan subjek tunggalnya yaitu coloring. (Kata benda warna red, orange, dan brown hanyalah kata sifat penjelas, bukan subjek utama).",
+    "sentence": "Whenever there are red, orange, or brown coloring in sandstone, iron ore is probably present.",
+    "sentenceParts": [
+      {
+        "text": "Whenever "
+      },
+      {
+        "text": "there",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "are",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " red, orange, or brown coloring in sandstone, iron ore is "
+      },
+      {
+        "text": "probably",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "present",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_31",
+    "number": 31,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: and (atau and also). Kata also tidak dapat digunakan sendirian untuk menghubungkan klausa-klausa dari suatu kalimat secara independen; kata hubung and atau and also harus digunakan.",
+    "sentence": "Feathers keep birds warm and dry also enable them to fly.",
+    "sentenceParts": [
+      {
+        "text": "Feathers keep birds "
+      },
+      {
+        "text": "warm",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " and dry "
+      },
+      {
+        "text": "also",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " enable "
+      },
+      {
+        "text": "them",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " to "
+      },
+      {
+        "text": "fly",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_32",
+    "number": 32,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: ripen. Setelah partikel infinitif to, kita harus menggunakan kata kerja bentuk dasar (verb) yaitu ripen (mematangkan), bukan bentuk kata sifat (adjective) ripe (matang).",
+    "sentence": "Some species of penicillin mold are used to ripe cheeses.",
+    "sentenceParts": [
+      {
+        "text": "Some",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " species of penicillin mold are "
+      },
+      {
+        "text": "used",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " to "
+      },
+      {
+        "text": "ripe",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "cheeses",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_33",
+    "number": 33,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: Since. Kata depan (preposition) yang benar untuk melengkapi kalimat ini adalah Since (sejak). Hal ini ditandai oleh penggunaan bentuk kata kerja waktu present perfect di dalam klausa, yaitu \"have devoted\".",
+    "sentence": "In about 1920, experimental psychologists have devoted more research to learning than to any other topic.",
+    "sentenceParts": [
+      {
+        "text": "In",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " about 1920, experimental "
+      },
+      {
+        "text": "psychologists",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " have devoted more research to "
+      },
+      {
+        "text": "learning",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " than to any other "
+      },
+      {
+        "text": "topic",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "s1_34",
+    "number": 34,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: found. Dalam sebuah frasa kata kerja berbentuk pasif (passive verb phrase / to be + V3), bentuk partisip lampau (past participle) yaitu found harus digunakan menggantikan bentuk kata kerja dasar (find).",
+    "sentence": "Natural asphalt lakes are find in many parts of the world.",
+    "sentenceParts": [
+      {
+        "text": "Natural asphalt "
+      },
+      {
+        "text": "lakes",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " are "
+      },
+      {
+        "text": "find",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " in many "
+      },
+      {
+        "text": "parts",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " of "
+      },
+      {
+        "text": "the",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": " world."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_35",
+    "number": 35,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: another. Bentuk kata penunjuk tunggal yang tepat untuk mengakhiri kalimat pembanding ini adalah another, bukan menggunakan kata other yang tidak didahului artikel penentu.",
+    "sentence": "All living creatures pass on inherited traits from one generation to other.",
+    "sentenceParts": [
+      {
+        "text": "All",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " living creatures pass on "
+      },
+      {
+        "text": "inherited",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " traits "
+      },
+      {
+        "text": "from",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " one generation to "
+      },
+      {
+        "text": "other",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "s1_36",
+    "number": 36,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: took place. Bentuk frasa kata kerja masa lampau (past verb form) yang benar untuk menyatakan \"terjadi\" adalah took place (dari kata dasar take place). Menambahkan akhiran -ed pada kata benda tempat (place) adalah kesalahan pembentukan kata.",
+    "sentence": "Many of the events that led up to the American Revolution took placed in Massachusetts.",
+    "sentenceParts": [
+      {
+        "text": "Many of the events that "
+      },
+      {
+        "text": "led",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " up to "
+      },
+      {
+        "text": "the",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " American Revolution took "
+      },
+      {
+        "text": "placed",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " in "
+      },
+      {
+        "text": "Massachusetts",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_37",
+    "number": 37,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: machines (atau diubah menjadi bentuk tunggal noncount: machinery). Kata machinery tergolong sebagai kata benda tidak dapat dihitung (noncount noun) sehingga tidak dapat diletakkan dalam bentuk jamak akhiran -ies. Jika ingin merujuk ke bentuk jamak dapat dihitung, kata benda machines adalah bentuk yang benar.",
+    "sentence": "Mass production is the manufacture of machineries and other articles in standard sizes and large numbers.",
+    "sentenceParts": [
+      {
+        "text": "Mass "
+      },
+      {
+        "text": "production",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " is the manufacture of "
+      },
+      {
+        "text": "machineries",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " and other articles in "
+      },
+      {
+        "text": "standard",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " sizes and large "
+      },
+      {
+        "text": "numbers",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "B"
+  },
+  {
+    "id": "s1_38",
+    "number": 38,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: many. Kata penunjuk kuantitas many harus digunakan untuk menggantikan much sebelum kata benda jamak dapat dihitung (plural count noun) seperti kata people (meskipun kata people tidak berakhiran huruf -s, ia tetap merupakan kata jamak).",
+    "sentence": "Not much people realize that apples have been cultivated for over 3,000 years.",
+    "sentenceParts": [
+      {
+        "text": "Not "
+      },
+      {
+        "text": "much",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " people "
+      },
+      {
+        "text": "realize",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " that apples have been "
+      },
+      {
+        "text": "cultivated",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " for over 3,000 "
+      },
+      {
+        "text": "years",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "s1_39",
+    "number": 39,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: almost entirely. Susunan tata letak kata keterangan (word order of adverbs) yang tepat adalah meletakkan kata keterangan penunjuk tingkat derajat (almost) mendahului kata keterangan yang diterangkannya (entirely).",
+    "sentence": "The destructive force of running water depends entirely almost on the velocity of its flow.",
+    "sentenceParts": [
+      {
+        "text": "The "
+      },
+      {
+        "text": "destructive",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " force of "
+      },
+      {
+        "text": "running",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " water depends "
+      },
+      {
+        "text": "entirely almost",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " on the velocity of its "
+      },
+      {
+        "text": "flow",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "s1_40",
+    "number": 40,
+    "type": "written_expression",
+    "explanation": "Koreksi yang Benar: native to. Kata sifat (adjective) native harus selalu diikuti oleh kata depan (preposition) to (misalnya: \"native to North America\"). Namun, sebagai catatan tambahan, bentuk kata benda (noun) native barulah umum diikuti oleh kata depan of (seperti: \"She is a native of Texas\").",
+    "sentence": "The eastern bluebird is considered the most attractive bird native of North America by many bird-watchers.",
+    "sentenceParts": [
+      {
+        "text": "The "
+      },
+      {
+        "text": "eastern",
+        "underline": true,
+        "label": "A"
+      },
+      {
+        "text": " bluebird is considered the most "
+      },
+      {
+        "text": "attractive",
+        "underline": true,
+        "label": "B"
+      },
+      {
+        "text": " bird "
+      },
+      {
+        "text": "native of",
+        "underline": true,
+        "label": "C"
+      },
+      {
+        "text": " North America by many "
+      },
+      {
+        "text": "bird-watchers",
+        "underline": true,
+        "label": "D"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "answer": "C"
+  }
+]

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* ===== TOEFL SIMULATOR PRINT STYLES ===== */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide headers, footers, buttons, theme toggles, speech speed controls, etc. */
+  header,
+  footer,
+  button,
+  .no-print,
+  nav,
+  input,
+  textarea {
+    display: none !important;
+  }
+
+  /* Force background colors on print for progress bars, stats cards, etc. */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Clean up layout */
+  main {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Container styling for report */
+  .print-container {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Ensure questions review doesn't break page awkwardly */
+  .print-card {
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    margin-bottom: 1.5rem !important;
+    padding: 1rem !important;
+    background: #fcfcfc !important;
+  }
+
+  /* Adjust color for readability on white paper */
+  h1, h2, h3, h4, h5, h6 {
+    color: #1a1a2e !important;
+  }
+
+  .text-indigo-400,
+  .text-violet-400,
+  .text-emerald-400,
+  .text-indigo-300 {
+    color: #312e81 !important; /* dark indigo */
+  }
+
+  .text-emerald-500,
+  .text-emerald-400 {
+    color: #065f46 !important; /* dark emerald */
+  }
+
+  .text-red-500,
+  .text-red-400 {
+    color: #991b1b !important; /* dark red */
+  }
+
+  /* Hide scrollbars */
+  .overflow-y-auto {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  .bg-slate-900,
+  .bg-slate-950,
+  .bg-slate-950\/50,
+  .bg-slate-950\/80,
+  .bg-slate-950\/60,
+  .bg-slate-900\/80 {
+    background-color: #f3f4f6 !important; /* light gray border-t */
+    border-color: #d1d5db !important;
+    color: #1f2937 !important;
+  }
+}
