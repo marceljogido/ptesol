@@ -160,6 +160,7 @@ export default function App() {
   const [quizFinished, setQuizFinished] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [isTimerActive, setIsTimerActive] = useState(false);
+  const [pendingResumeSession, setPendingResumeSession] = useState(null);
   
   // State Audio & Voice
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
@@ -275,27 +276,39 @@ export default function App() {
       }
       
       setQuestions(loadedQuestions);
-      setCurrentQuestionIndex(0);
-      setUserAnswers({});
       setQuizFinished(false);
       setShowScript(false);
       
-      if (quizMode === 'exam' || isFullExam) {
-        // TOEFL PBT official time limits
-        const sectionTimeLimits = {
-          listening: 35 * 60,  // 35 menit
-          structure: 25 * 60,  // 25 menit
-          reading: 55 * 60     // 55 menit
-        };
-        setTimerSeconds(sectionTimeLimits[selectedSection] || loadedQuestions.length * 60);
-        setIsTimerActive(true);
+      if (pendingResumeSession) {
+        setCurrentQuestionIndex(pendingResumeSession.currentQuestionIndex);
+        setUserAnswers(pendingResumeSession.userAnswers || {});
+        setTimerSeconds(pendingResumeSession.timerSeconds);
+        setPendingResumeSession(null);
+        if (quizMode === 'exam') {
+          setIsTimerActive(true);
+        } else {
+          setIsTimerActive(false);
+        }
       } else {
-        setTimerSeconds(0);
-        setIsTimerActive(false);
+        setCurrentQuestionIndex(0);
+        setUserAnswers({});
+        if (quizMode === 'exam' || isFullExam) {
+          // TOEFL PBT official time limits
+          const sectionTimeLimits = {
+            listening: 35 * 60,  // 35 menit
+            structure: 25 * 60,  // 25 menit
+            reading: 55 * 60     // 55 menit
+          };
+          setTimerSeconds(sectionTimeLimits[selectedSection] || loadedQuestions.length * 60);
+          setIsTimerActive(true);
+        } else {
+          setTimerSeconds(0);
+          setIsTimerActive(false);
+        }
       }
     }
     stopAllAudio();
-  }, [currentScreen, selectedTest, selectedSection, quizMode]);
+  }, [currentScreen, selectedTest, selectedSection, quizMode, pendingResumeSession]);
 
   // 3. Kontrol Efek Timer
   useEffect(() => {
@@ -310,6 +323,19 @@ export default function App() {
     return () => clearInterval(interval);
   }, [isTimerActive, timerSeconds]);
 
+  // 3b. Simpan progress sesi latihan (non-full exam) ke localStorage secara otomatis
+  useEffect(() => {
+    if (currentScreen === 'quiz' && !isFullExam && questions.length > 0 && !quizFinished) {
+      const sessionKey = `toefl_session_${selectedTest}_${selectedSection}_${quizMode}`;
+      const sessionData = {
+        currentQuestionIndex,
+        userAnswers,
+        timerSeconds
+      };
+      localStorage.setItem(sessionKey, JSON.stringify(sessionData));
+    }
+  }, [currentScreen, isFullExam, selectedTest, selectedSection, quizMode, currentQuestionIndex, userAnswers, timerSeconds, questions, quizFinished]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
@@ -323,6 +349,23 @@ export default function App() {
     setSelectedTest(testId);
     setSelectedSection(sectionId);
     setQuizMode(mode);
+    
+    const sessionKey = `toefl_session_${testId}_${sectionId}_${mode}`;
+    const saved = localStorage.getItem(sessionKey);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      const questionNum = parsed.currentQuestionIndex + 1;
+      const confirmResume = window.confirm(`Anda memiliki sesi latihan ${mode === 'study' ? 'Study' : 'Exam'} yang belum selesai (terakhir di soal ${questionNum}). Lanjutkan dari soal ini?`);
+      if (confirmResume) {
+        setPendingResumeSession(parsed);
+      } else {
+        localStorage.removeItem(sessionKey);
+        setPendingResumeSession(null);
+      }
+    } else {
+      setPendingResumeSession(null);
+    }
+    
     setCurrentScreen('quiz');
   };
 
@@ -429,6 +472,11 @@ export default function App() {
       const score = calcSectionScore(questions, userAnswers, selectedSection);
       const scoreData = { isFullExam: false, correct: score.correct, total: score.total, percentage: score.percent, estimatedPBT: Math.round(((score.scaled * 3) * 10) / 3), scaledScore: score.scaled };
       saveScoreToHistory(scoreData, questions, userAnswers, { listening: [], structure: [], reading: [] }, { listening: {}, structure: {}, reading: {} });
+      
+      // Hapus sesi latihan yang tersimpan karena sudah selesai dikerjakan
+      const sessionKey = `toefl_session_${selectedTest}_${selectedSection}_${quizMode}`;
+      localStorage.removeItem(sessionKey);
+      
       setCurrentScreen('results');
     }
   };
@@ -875,13 +923,17 @@ export default function App() {
           {currentScreen !== 'dashboard' && (
             <button
               onClick={() => {
+                if (isFullExam) {
+                  const confirmExit = window.confirm("Apakah Anda yakin ingin membatalkan Ujian Lengkap? Seluruh kemajuan ujian Anda saat ini akan dihapus dan tidak dapat dipulihkan.");
+                  if (!confirmExit) return;
+                }
                 stopAllAudio();
                 setCurrentScreen('dashboard');
               }}
               className="flex items-center space-x-1 text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-xl font-medium transition duration-200"
             >
               <LogOut className="w-4 h-4" />
-              <span className="hidden sm:inline">Keluar Sesi</span>
+              <span className="hidden sm:inline">{isFullExam ? "Keluar Ujian" : "Keluar Sesi"}</span>
             </button>
           )}
         </div>
